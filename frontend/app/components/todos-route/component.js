@@ -29,7 +29,7 @@ export default Ember.Component.extend({
     get: function() {
       return !isEmpty(this) && this.get('todos.length') === this.get('completed.length');
     },
-    set: function(key, newName) {
+    set: function(key, value) {
       // TODO: use action instead of a 2 way CP.
       var todos = this.get('todos');
       todos.setEach('isCompleted', value);
