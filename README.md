@@ -1,25 +1,25 @@
-# experimental: todo mvc -> ember frontend + sails backend
+# todomvc -> ember frontend + sails backend
 
 Slight modifications to ember-cli-todos to support a real REST backend using sails.js.
 
-## motivation
+## Motivation
 
 Add a real backend to ember-cli-todos which uses mock data. Also slowly make this 100% compliant with emberjs 2.0 when that is released.
 
 If this helps someone out, cool.
 
-## original files
+## Original Files
 
 - ember-cli-todos: [link](https://github.com/ember-cli/ember-cli-todos)
 
-## modifications
+## Modifications
 
 - backend (new)
 - frontend/app/components/todo-checkbox (new)
 - frontend/app/components/todo-item/template.hbs
 - frontend/app/components/todo-route/components.js:allAreDone -> use get/set per: [link](http://emberjs.com/deprecations/v1.x/#toc_computed-properties-with-a-shared-getter-and-setter)
 
-## usage
+## Usage
 
 frontend:
 
