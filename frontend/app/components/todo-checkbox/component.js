@@ -2,6 +2,7 @@
  * The Ember input helper wouldn't respond to any events/fire any actions.
  * Thus this component..
  * Possible issue: https://github.com/emberjs/ember.js/issues/5433
+ * Or not: checked=actionName should have worked.
  */
 
 import Ember from 'ember';
