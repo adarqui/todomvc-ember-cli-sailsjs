@@ -44,7 +44,7 @@ browser:
 elinks http://<host>:4200
 ```
 
-## FYI: setting up sails to use api ember-data style blueprints
+## FYI: setting up sails to use ember-data api style blueprints
 
 ```
 cd backend
