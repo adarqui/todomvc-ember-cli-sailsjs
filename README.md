@@ -27,7 +27,7 @@ frontend:
 cd frontend
 npm install
 bower install
-ember serve --host `hostname` --proxy http/localhost:3000
+ember serve --host `hostname` --proxy http/localhost:1337
 ```
 
 backend:
