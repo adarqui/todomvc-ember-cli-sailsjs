@@ -1,4 +1,4 @@
-# todomvc -> ember frontend + sails backend
+# todomvc -> ember-cli frontend + sails backend
 
 Slight modifications to ember-cli-todos to support a real REST backend using sails.js.
 
