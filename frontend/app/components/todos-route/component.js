@@ -5,6 +5,9 @@ var filterBy = Ember.computed.filterBy;
 var computed = Ember.computed;
 
 export default Ember.Component.extend({
+  newTitle: '',
+  isCompleted: false,
+
   filtered: computed('todos.@each.isCompleted', 'filter', function() {
     var filter = this.get('filter');
     var all = this.get('todos');
@@ -22,15 +25,16 @@ export default Ember.Component.extend({
     return active === 1 ? 'item' : 'items';
   }).readOnly(),
 
-  allAreDone: computed('filtered.@each.isCompleted', function (key, value) {
-    if (arguments.length === 2) {
+  allAreDone: computed('filtered.@each.isCompleted', {
+    get: function() {
+      return !isEmpty(this) && this.get('todos.length') === this.get('completed.length');
+    },
+    set: function(key, newName) {
       // TODO: use action instead of a 2 way CP.
       var todos = this.get('todos');
       todos.setEach('isCompleted', value);
       todos.invoke('save');
       return value;
-    } else {
-      return !isEmpty(this) && this.get('todos.length') === this.get('completed.length');
     }
   }),
 
@@ -59,9 +63,14 @@ export default Ember.Component.extend({
     clearCompleted() {
       var completed = this.get('completed');
 
-      completed.toArray(). // clone the array, so it is not bound while we iterate over and delete.
-        invoke('deleteRecord').
-        invoke('save');
+      // delete all records that are isCompleted:true
+      completed.forEach(function(rec) {
+        Ember.run.once(this, function() {
+          rec.deleteRecord();
+          rec.save();
+        });
+      });
+
     }
   },
 });

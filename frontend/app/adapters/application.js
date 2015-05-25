@@ -1,6 +1,13 @@
 import DS from 'ember-data';
 
-export default DS.Adapter.extend({
+function ourUrl() {
+    return location.protocol + '//' + location.hostname + (location.port ? ':'+location.port: '');
+}
+
+export default DS.RESTAdapter.extend({
+  namespace: 'v1',
+  host: ourUrl(),
+  /*
   findAll() {
     // rather then doing an ajax, just echo back the default data
 
@@ -50,4 +57,5 @@ export default DS.Adapter.extend({
 
     return { id: record.id };
   }
+  */
 });

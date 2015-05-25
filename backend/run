@@ -1,0 +1,3 @@
+#!/bin/bash
+
+supervisor -i .tmp,.git,views app.js

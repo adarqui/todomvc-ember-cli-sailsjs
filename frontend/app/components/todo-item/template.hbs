@@ -3,7 +3,8 @@
                            focus-out='save'
                            insert-newline='save'}}
 {{else}}
-  {{input type='checkbox' checked=todo.isCompleted class='toggle'}}
+  {{todo-checkbox action="updateStatus" todo=todo}}
+  {{! input type='checkbox' checked=todo.isCompleted class='toggle' action="updateStatus"}}
   <label {{action 'editTodo' on='doubleClick'}}>{{todo.title}}</label>
   <button {{action 'removeTodo'}} class='destroy'></button>
 {{/if}}
